@@ -1,0 +1,31 @@
+<div class="jumbotron py-3 my-2">
+  <h5 class="text-success">What is the emotion that each photo conveys?</h5>
+  <p class="pl-3 my-0">Choose from dropdown menu in each photo </p>
+  <!-- <p class="text-danger">1 = very sad </p>
+  <p class="text-primary">10 = very happy</p> -->
+</div>
+<div class="row">
+  <div class="col-lg-6" *ngFor="let image of images">
+    <div class="card">
+      <img class="card-img-top" src="/images/{{image}}" alt="{{image}}">
+      <div class="card-body">
+        <select (change)="update(image, $event)" name="" id="">
+          <option value="">Choose</option>
+          <option value="1">1 - extremely sad</option>
+          <option value="2">2 - very sad</option>
+          <option value="3">3 - sad</option>
+          <option value="4">4 - somewhat sad</option>
+          <option value="5">5 - neutral</option>
+          <option value="6">6 - somewhat happy</option>
+          <option value="7">7 - happy</option>
+          <option value="8">8 - very happy</option>
+          <option value="9">9 - extremely happy</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)="submit()" [disabled]="showTimer" class="btn btn-primary pull-right text-white">Submit</button>
+<div *ngIf="showTimer" class="my-2">
+  <h3>Next part will begin in: {{remainder}}s</h3>
+</div>
